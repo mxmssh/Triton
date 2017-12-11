@@ -14,11 +14,11 @@
 namespace triton {
   namespace ast {
 
-    AstContext::AstContext(const AstContext& other)
-      : astGarbageCollector(other.astGarbageCollector),
-        astRepresentation(other.astRepresentation) {
-      this->valueMapping = other.valueMapping;
-    }
+    //AstContext::AstContext(const AstContext& other)
+    //  : astGarbageCollector(other.astGarbageCollector),
+    //    astRepresentation(other.astRepresentation) {
+    //  this->valueMapping = other.valueMapping;
+    //}
 
 
     AstContext::AstContext(const triton::modes::Modes& modes)
@@ -26,11 +26,11 @@ namespace triton {
     }
 
 
-    void AstContext::operator=(const AstContext& other) {
-      this->astGarbageCollector = other.astGarbageCollector;
-      this->astRepresentation = other.astRepresentation;
-      this->valueMapping = other.valueMapping;
-    }
+    //void AstContext::operator=(const AstContext& other) {
+    //  this->astGarbageCollector = other.astGarbageCollector;
+    //  this->astRepresentation = other.astRepresentation;
+    //  this->valueMapping = other.valueMapping;
+    //}
 
 
     AbstractNode* AstContext::bv(triton::uint512 value, triton::uint32 size) {

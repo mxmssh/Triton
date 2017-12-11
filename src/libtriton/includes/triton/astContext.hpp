@@ -56,10 +56,10 @@ namespace triton {
         TRITON_EXPORT AstContext(const triton::modes::Modes& modes);
 
         //! Constructor by copy
-        TRITON_EXPORT AstContext(const AstContext& other);
+        TRITON_EXPORT AstContext(const AstContext& other) = default;
 
         //! Operator
-        TRITON_EXPORT void operator=(const AstContext& other);
+        TRITON_EXPORT AstContext& operator=(const AstContext& other) & = default;
 
         //! AST C++ API - bv node builder
         TRITON_EXPORT AbstractNode* bv(triton::uint512 value, triton::uint32 size);
