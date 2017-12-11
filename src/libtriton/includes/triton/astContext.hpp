@@ -56,7 +56,7 @@ namespace triton {
         TRITON_EXPORT AstContext(const triton::modes::Modes& modes);
 
         //! Constructor by copy
-        TRITON_EXPORT AstContext(const AstContext& other) = default;
+        TRITON_EXPORT AstContext(const AstContext& other);
 
         //! Operator
         TRITON_EXPORT AstContext& operator=(const AstContext& other);
