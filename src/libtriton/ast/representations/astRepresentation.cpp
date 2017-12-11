@@ -22,8 +22,8 @@ namespace triton {
         this->mode = triton::ast::representations::SMT_REPRESENTATION;
 
         /* Init representations interface */
-        this->representations[triton::ast::representations::SMT_REPRESENTATION] = new(std::nothrow) triton::ast::representations::AstSmtRepresentation();
-        this->representations[triton::ast::representations::PYTHON_REPRESENTATION] = new(std::nothrow) triton::ast::representations::AstPythonRepresentation();
+        this->representations[triton::ast::representations::SMT_REPRESENTATION] = std::unique_ptr<triton::ast::representations::AstSmtRepresentation>(new(std::nothrow) triton::ast::representations::AstSmtRepresentation());
+        this->representations[triton::ast::representations::PYTHON_REPRESENTATION] = std::unique_ptr<triton::ast::representations::AstPythonRepresentation>(new(std::nothrow) triton::ast::representations::AstPythonRepresentation());
 
         if (this->representations[triton::ast::representations::SMT_REPRESENTATION] == nullptr)
           throw triton::exceptions::AstRepresentation("AstRepresentation::AstRepresentation(): Cannot allocate a new representation instance.");
@@ -33,17 +33,14 @@ namespace triton {
       }
 
 
-      AstRepresentation::AstRepresentation(const AstRepresentation& other) {
+      AstRepresentation::AstRepresentation(const AstRepresentation& other)
+      : AstRepresentation() {
         this->mode = other.mode;
-        this->representations[0] = other.representations[0];
-        this->representations[1] = other.representations[1];
       }
 
 
       void AstRepresentation::operator=(const AstRepresentation& other) {
         this->mode = other.mode;
-        this->representations[0] = other.representations[0];
-        this->representations[1] = other.representations[1];
       }
 
 

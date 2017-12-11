@@ -56,7 +56,7 @@ namespace triton {
           triton::uint32 mode;
 
           //! AstRepresentation interface.
-          triton::ast::representations::AstRepresentationInterface* representations[triton::ast::representations::LAST_REPRESENTATION];
+          std::unique_ptr<triton::ast::representations::AstRepresentationInterface> representations[triton::ast::representations::LAST_REPRESENTATION];
 
         public:
           //! Constructor.
