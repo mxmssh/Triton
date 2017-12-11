@@ -18,7 +18,6 @@ namespace triton {
       : astGarbageCollector(other.astGarbageCollector),
         astRepresentation(other.astRepresentation),
         valueMapping(other.valueMapping) {
-      this->valueMapping = other.valueMapping;
     }
 
 
